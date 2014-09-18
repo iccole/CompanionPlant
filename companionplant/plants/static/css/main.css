@@ -1,0 +1,253 @@
+.site-head-bar {
+    background-color: #EBFAEC;
+    z-index: 9001000;
+    height: 40px;
+    top:0px;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+}
+
+.site-head-bar a{
+    color: inherit;
+}
+
+.site-main-splash {
+     background: url(../splash3.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.site-main-splash img{
+    /*width: 100%;
+    height: 100%;
+    position: absolute;*/   
+}
+
+.site-main-wrapper{
+ /*   z-index: 100;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: block;*/
+    top: 50%;
+    /*left: 50%;*/
+    width: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+.site-main-wrapper p{
+     font-weight: 500;
+     font-size: 50px;
+    color: #FFFFFF;
+
+}
+.site-head-share {
+    float: right;
+    position: relative;
+    top: 10px;
+    text-decoration: none;
+    padding-right: 8.0rem;
+    padding-bottom: 50px;
+}
+
+.site-head-bar .logo {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    padding-left: 8.0rem;
+    padding-top: 10px;
+    color: #14BA20;
+}
+.site-head-bar .links{
+    margin-left: 25.0rem;
+    color: #14BA20;
+    padding-top: 10px;
+}
+.site-head-bar .searchbar{
+    position: relative;
+    padding-top: 7px;
+    float: right;
+    padding-right: 3.0rem;
+}
+
+/* search bar */
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
+
+#searchfield { display: block; width: 100%; text-align: center; margin-bottom: 35px; }
+ 
+#searchfield form {
+  display: inline-block;
+  background: #eeefed;
+  padding: 0;
+  margin: 0;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 5px 0 0 0;
+}
+#searchfield form .biginput {
+  width: 600px;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  background-color: #fff;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  color: #aeaeae;
+  font-weight:normal;
+  font-size: 1.5em;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+#searchfield form .biginput:focus {
+  color: #858585;
+}
+/* end search bar */
+
+.main-content{
+   background-color: #EBFAEC;
+   color: #001C02;
+   padding-left: 8.0rem;
+   height: 100%;
+}
+.plant-detail {
+    width: 100%;
+    background-color: #14BA20; 
+    padding-top: 3.0rem;
+    padding-bottom: 3.0rem;
+    left: 0px;
+}
+
+.plant-detail .name{
+    padding-left: 8.0rem;
+    color: #EBFAEC;
+}
+
+.plant-detail .scientific-name{
+    padding-left: 8.0rem;
+    color: #EBFAEC;
+}
+
+.content{
+    width: 100%;
+    padding-top: 40px;
+/*    padding-top: 100px;
+*/}
+.splash{
+    width: 100%;
+    height: 80%;
+    background: no-repeat center center;
+    background-size: cover;
+    background-image: url("../assets/bg5.jpg");
+    -webkit-filter: grayscale(100%); 
+}
+.splash img{
+    display: block;
+    filter: blur(5px);
+    filter: gray;
+    
+    //filter: blur(5px);
+    max-width: 100%;
+    max-height: 100%;
+// Browser Specific
+-webkit-filter: blur(5px);    
+}
+.footer-text{
+    text-align: center;
+    font-size: 11px;
+}
+.footerlinks{
+    font-size: .5em;
+    color: gray;
+}
+footer {
+    background-color: #F5F5F5;
+    bottom: 0px;
+}
+.center{
+    margin-left:auto;
+    margin-right:auto;
+    width:15%;
+
+}
+.plantDetail{
+    padding-top: 50px;
+}
+
+/* ==========================================================================
+   1. Icons - Sets up the icon font and respective classes
+   ========================================================================== */
+
+/* Import the font file with the icons in it */
+@font-face {
+    font-family: 'icons';
+    src:url('../fonts/icons.eot');
+    src:url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icons.woff') format('woff'),
+        url('../fonts/icons.ttf') format('truetype'),
+        url('../fonts/icons.svg#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply these base styles to all icons */
+.icon-ghost:before, 
+.icon-feed:before, 
+.icon-twitter:before, 
+.icon-google-plus:before, 
+.icon-facebook:before {
+    font-family: 'icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+}
+
+/* Each icon is created by inserting the corret character into the 
+   content of the :before pseudo element. Like a boss. */
+.icon-ghost:before {
+    content: "\e000";
+}
+.icon-feed:before {
+    content: "\e001";
+}
+.icon-twitter:before {
+    content: "\e002";
+    font-size: 1.1em;
+}
+.icon-google-plus:before {
+    content: "\e003";
+}
+.icon-facebook:before {
+    content: "\e004";
+}
+ .plant-links {
+   /* border-style:solid;
+    border-color: #78DF7F;
+    background-color: #78DF7F;*/
+    margin-bottom: 3px;
+    list-style-type: none;
+    width: 30.0rem;
+    color: #EBFAEC;
+}
+a.icon-twitter {
+    color: #1C886A;
+}
+a.icon-facebook {
+    color: #1C886A;
+}
+a.icon-google-plus {
+    color: #1C886A;
+}

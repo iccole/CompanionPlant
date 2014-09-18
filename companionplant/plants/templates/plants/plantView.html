@@ -1,0 +1,111 @@
+
+	<title>Companion Planting Made Easy</title>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css">
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.autocomplete.js"></script>
+<body>
+	<div class="site-head-bar">
+		<div class="logo">
+			<a href="/plants"><b>CompanionPlant</b></a><a style="padding-left: 40px;" href="/plants/createMatch">Add companion pair</a>
+		</div>
+		<!-- <div class="links">
+			<a href="/plants/createMatch">Add companion pair</a>
+		</div> -->
+		<section class="site-head-share">
+                    
+                    <a class="icon-twitter" href="http://twitter.com/share?text=&url="
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u="
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url="
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                    </a>
+        </section>
+        <div class="searchbar">
+			<input type="text" class="biginput" id="autocomplete" placeholder="Start finding matches">
+		</div>
+	</div>
+	<div class="plant-detail">
+			{% if plant %}
+			<div class="name"><h1>{{plant.name}}</h1></div> 
+			<div class="scientific-name"><p>{{plant.scientificName}}</p></div>
+			{% else %}
+			<p>No data Available</p>
+			{% endif %}
+		</div>
+	<div class="main-content">
+	<div class="row">
+		<div class="plantHelps col-md-4">
+			<h2>Helps</h2>
+			{% for match in helps %}
+				<li class="plant-links"><a href="{% url 'plants:plant' match.plant2.id %}">{{match.plant2.name}}</a></li>
+			{% endfor %}
+		</div>
+		<div class="plantHelpedBy col-md-4">
+			<h2> Is Helped By</h2>
+			{% for match in helpedBy %}
+				<li class="plant-links" ><a href="{% url 'plants:plant' match.plant1.id %}">{{match.plant1.name}}</a></li>
+			{% endfor %}
+		</div>
+		<div class="plantAvoid col-md-4">
+			<h2>Avoid Planting With</h2>
+			{% for match in avoid %}
+				{% if plant.name == match.plant1.name %}
+					<li class="plant-links"><a  href="{% url 'plants:plant' match.plant2.id %}">{{match.plant2.name}}</a></li>
+				{% else %}
+					<li class="plant-links"><a  href="{% url 'plants:plant' match.plant1.id %}">{{match.plant1.name}}</a></li>
+				{% endif %}
+			{% endfor %}	
+		</div>
+	</div>
+	   <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'companionplant'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+	</div>
+		<script type="text/javascript"> 
+
+	var array = new Array();
+		{% for plant in plants %}
+		var auto = {value : "{{plant.name}}", id:"{{plant.id}}"};
+			array.push(auto);
+		{% endfor %}
+		console.log(array);
+
+	  $('#autocomplete').autocomplete({
+	    lookup: array,
+	    onSelect: function (suggestion) {
+	      window.location.href = "/plants/"+suggestion.id+"/";
+	    }
+	  });
+	</script>
+	 <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'companionplant'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
+</body>

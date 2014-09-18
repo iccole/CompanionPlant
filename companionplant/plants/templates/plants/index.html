@@ -1,0 +1,65 @@
+	<title>Companion Planting Made Easy</title>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css">
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.autocomplete.js"></script>
+<body>
+		<div class="site-head-bar">
+		<div class="logo">
+			<a href="/plants"><b>CompanionPlant</b></a><a style="padding-left: 40px;" href="/plants/createMatch">Add companion pair</a>
+		</div>
+		<!-- <div class="links">
+			<a href="/plants/createMatch">Add companion pair</a>
+		</div> -->
+		<section class="site-head-share">
+                    
+                    <a class="icon-twitter" href="http://twitter.com/share?text=&url="
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u="
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url="
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                    </a>
+        </section>
+       <!--  <div class="searchbar">
+			<input type="text" placeholder="Start finding matches">
+		</div> -->
+
+	</div>
+	<div>
+		<div class="site-main-splash">
+			<!-- <img src="{{ STATIC_URL }}splash.jpg"/> -->
+		</div>
+		<div class="site-main-wrapper">
+			<p>Companion Planting Made Easy</p>
+
+			<input style="width: 20%"type="text" id="autocomplete" class="biginput" />
+		</div>
+	</div>
+
+	<script type="text/javascript"> 
+
+	var array = new Array();
+		{% for plant in plants %}
+		var auto = {value : "{{plant.name}}", id:"{{plant.id}}"};
+			array.push(auto);
+		{% endfor %}
+		console.log(array);
+
+	  $('#autocomplete').autocomplete({
+	    lookup: array,
+	    onSelect: function (suggestion) {
+	      window.location.href = "/plants/"+suggestion.id+"/";
+	    }
+	  });
+	</script>
+</body>
+	<footer>
+		<p class="footer-text"><b>“Live in each season as it passes; breathe the air, drink the drink, taste the fruit, and resign yourself to the influence of the earth.”</b></p>
+		<p class="footer-text"><i>The data gathered here was compiled from generaly accepted plant pairings</i></p>
+	</footer>
